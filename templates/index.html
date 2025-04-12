@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FILLSAFE AI</title>
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="styles.css">
+    
+        <!-- Custom JavaScript -->
+        <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    </head>
+    
+<body>
+    <div class="header">
+        <div class="logo">FILLSAFE AI</div>
+        <div class="nav">
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="#">Sign Up</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+
+    <h3>Upload the required video</h3>
+
+    <div class="container">
+        <div class="left-column">
+            <!-- Clock UI -->
+            <div class="clock" aria-label="00:00:00 AM"> ... </div>
+
+            <!-- Video display -->
+            <div class="video-frame" id="video-frame">
+                <video id="processed-video" controls style="display: none; width: 100%;">
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- File Upload -->
+            <div class="file-uploader">
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" name="file" accept="video/*" required>
+                    <button type="submit" class="upload-btn">Upload Video</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <!-- Terminal -->
+            <div class="terminal" id="terminal">
+                > System initialized<br>
+                > Waiting for input...<br>
+                > Ready for video processing<br>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading-bar" id="loading-bar" style="display: none;">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+
+            <!-- Fuel -->
+            <div class="fuel-display">
+                Total Fuel Injected: <span id="fuel-value">0.00</span> L
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('upload-form');
+        const videoElement = document.getElementById("processed-video");
+        const videoSource = document.getElementById("video-source");
+        const terminal = document.getElementById("terminal");
+        const loadingBar = document.getElementById("loading-bar");
+        const progressBar = document.getElementById("progress-bar");
+        const fuelValue = document.getElementById("fuel-value");
+
+        let statusInterval;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const fileInput = form.querySelector('input[name="file"]');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+
+            terminal.innerHTML += "> Uploading file...<br>";
+            loadingBar.style.display = 'block';
+            progressBar.style.width = '0%';
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                terminal.innerHTML += `> ${data.message}<br>`;
+                statusInterval = setInterval(checkStatus, 2000);
+            })
+            .catch(err => {
+                terminal.innerHTML += `> Error: ${err}<br>`;
+            });
+        });
+
+        function checkStatus() {
+            fetch('/status')
+                .then(res => res.json())
+                .then(data => {
+                    progressBar.style.width = `${data.progress}%`;
+                    fuelValue.textContent = data.fuel.toFixed(2);
+
+                    if (data.status === 'complete') {
+                        clearInterval(statusInterval);
+                        terminal.innerHTML += `> ✅ Processing complete.<br>`;
+                        updateVideoSource(`/processed/${data.output_file}`);
+                        loadingBar.style.display = 'none';
+                    } else if (data.status === 'error') {
+                        clearInterval(statusInterval);
+                        terminal.innerHTML += `> ❌ Error: ${data.message}<br>`;
+                        loadingBar.style.display = 'none';
+                    } else {
+                        terminal.innerHTML += `> Progress: ${data.progress.toFixed(2)}%<br>`;
+                    }
+                });
+        }
+
+        function updateVideoSource(videoUrl) {
+            videoSource.src = videoUrl;
+            videoElement.load();
+            videoElement.style.display = "block";
+        }
+    </script>
+    <script>
+  var vapiInstance = null;
+  const assistant = "1bde0c13-48a2-42b6-a566-a45f7a2104f3"; // Substitute with your assistant ID
+  const apiKey = "821b7054-bc2d-4e10-be19-b35de42ac7b6"; // Substitute with your Public key from Vapi Dashboard.
+  const buttonConfig = {
+  position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+  offset: "40px", // decide how far the button should be from the edge
+  width: "50px", // min-width of the button
+  height: "50px", // height of the button
+  idle: { // button state when the call is not active.
+    color: `rgb(93, 254, 202)`, 
+    type: "pill", // or "round"
+    title: "Have a quick question?", // only required in case of Pill
+    subtitle: "Talk with our AI assistant", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+  },
+  loading: { // button state when the call is connecting
+    color: `rgb(93, 124, 202)`,
+    type: "pill", // or "round"
+    title: "Connecting...", // only required in case of Pill
+    subtitle: "Please wait", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+  },
+  active: { // button state when the call is in progress or active.
+    color: `rgb(255, 0, 0)`,
+    type: "pill", // or "round"
+    title: "Call is in progress...", // only required in case of Pill
+    subtitle: "End the call.", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+  },
+};
+
+
+
+  (function (d, t) {
+    var g = document.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    g.src =
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+
+    g.onload = function () {
+      vapiInstance = window.vapiSDK.run({
+        apiKey: apiKey, // mandatory
+        assistant: assistant, // mandatory
+        config: buttonConfig, // optional
+      });
+    };
+  })(document, "script");
+
+  
+
+</script>
+
+</body>
+</html>
