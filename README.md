@@ -40,30 +40,14 @@ Impact: Enhances customer safety, reduces repair costs, improves efficiency, and
 Feasibility: Low setup cost with long-term savings, simple for staff, and meets industry regulations.
 
 # Output
-
-![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
-
-![Image](https://github.com/user-attachments/assets/99850e20-41f2-4cc7-a6b1-60a6697717cb)
-
+*FILLSAFE Dashboard*
 ![Image](https://github.com/user-attachments/assets/cd2a3806-0494-400d-9e92-0d0f8567c69c)
-
+*Detecting Fire*
+![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
+*Queue Detection of Vehicles*
+![Image](https://github.com/user-attachments/assets/99850e20-41f2-4cc7-a6b1-60a6697717cb)
+*Number Plate Detection*
 ![Image](https://github.com/user-attachments/assets/6e86b3cf-246b-4881-84f3-ce93c94da20a)
-
-Getting Started
-Clone the repository.
-
-Install required packages.
-
-Run the application.
-
-Contributing
-Contributions are welcome! Please submit a pull request with your changes.
-
-License
-[Insert License Information]
 
 Acknowledgments
 Special thanks to the team members: Sai Rahul, Suthish, Soham, and Dhruba.
-
-Contact Us
-For more information or collaboration opportunities, please contact us at [insert contact email or link].
