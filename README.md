@@ -18,8 +18,6 @@ Vehicle Queue Detection: Ensures efficient waiting times for vehicles.
 
 Voice Assistance: Provides real-time guidance to ensure proper fueling.
 
-![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
-
 # Innovation and Uniqueness
 CNN-Powered Nozzle Detection: Utilizes a custom-trained YOLOv8 model to accurately detect fuel guns and fuel tank positions.
 
@@ -29,8 +27,6 @@ Attendant & Driver Safety Monitoring: Uses pose estimation and action recognitio
 
 AI Model Recommendation System: Offers voice assistance for guiding how to fuel up safely.
 
-[Insert Image: YOLOv8 Model Example]
-
 # Implementation Strategy
 Backend & AI Processing Setup: Developed using FastAPI for real-time AI processing.
 
@@ -38,14 +34,15 @@ Fuel Flow Integration: Integrates with fuel pump flow rate data and deploys addi
 
 Frontend Development: A ReactJS-based dashboard for real-time monitoring, alerts, and reporting.
 
-[Insert Image: Dashboard Screenshot]
-
 # Impact and Feasibility
 Impact: Enhances customer safety, reduces repair costs, improves efficiency, and reduces improper fuel disposal.
 
 Feasibility: Low setup cost with long-term savings, simple for staff, and meets industry regulations.
 
-[Insert Image: System Benefits Infographic]
+# Output
+
+![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
+
 
 Getting Started
 Clone the repository.
