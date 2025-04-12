@@ -43,6 +43,11 @@ Feasibility: Low setup cost with long-term savings, simple for staff, and meets 
 
 ![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
 
+![Image](https://github.com/user-attachments/assets/99850e20-41f2-4cc7-a6b1-60a6697717cb)
+
+![Image](https://github.com/user-attachments/assets/cd2a3806-0494-400d-9e92-0d0f8567c69c)
+
+![Image](https://github.com/user-attachments/assets/6e86b3cf-246b-4881-84f3-ce93c94da20a)
 
 Getting Started
 Clone the repository.
