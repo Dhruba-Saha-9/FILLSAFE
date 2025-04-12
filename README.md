@@ -49,5 +49,6 @@ Feasibility: Low setup cost with long-term savings, simple for staff, and meets 
 *Number Plate Detection*
 ![Image](https://github.com/user-attachments/assets/6e86b3cf-246b-4881-84f3-ce93c94da20a)
 
+
 Acknowledgments
-Special thanks to the team members: Sai Rahul, Suthish, Soham, and Dhruba.
+Special thanks to the team members: Sai Rahul, Suthish, Deepak, Soham, and Dhruba.
