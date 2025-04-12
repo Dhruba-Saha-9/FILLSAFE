@@ -50,5 +50,5 @@ Feasibility: Low setup cost with long-term savings, simple for staff, and meets 
 ![Image](https://github.com/user-attachments/assets/6e86b3cf-246b-4881-84f3-ce93c94da20a)
 
 
-Acknowledgments
+# Acknowledgments
 Special thanks to the team members: Sai Rahul, Suthish, Deepak, Soham, and Dhruba.
