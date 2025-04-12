@@ -18,7 +18,7 @@ Vehicle Queue Detection: Ensures efficient waiting times for vehicles.
 
 Voice Assistance: Provides real-time guidance to ensure proper fueling.
 
-[Insert Image: System Architecture Diagram]
+![Image](https://github.com/user-attachments/assets/1154cd1a-20ae-44fc-b5ce-3a67e7d16942)
 
 # Innovation and Uniqueness
 CNN-Powered Nozzle Detection: Utilizes a custom-trained YOLOv8 model to accurately detect fuel guns and fuel tank positions.
